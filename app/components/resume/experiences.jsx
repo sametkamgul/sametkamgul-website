@@ -39,7 +39,7 @@ const experiencesList = [
     roles: "Development of apps and hardwares",
     location: "Istanbul/Turkiye - on site",
     dates: "04.2018 ~ 06.2020",
-    techs: "Python, OpenCV, MySQL, and C/C++",
+    techs: "Python, OpenCV, MySQL, C/C++",
   },
   {
     title: "SOFTWARE DEVELOPER",
@@ -49,7 +49,7 @@ const experiencesList = [
       "Develop IoT based ESP8266 system for monitoring the embedded system on website",
     location: "Izmir/Turkiye - freelance",
     dates: "09.2017 ~ 03.2018",
-    techs: "PHP, MySQL, JavaScript, HTML and CSS",
+    techs: "PHP, MySQL, JavaScript, HTML, CSS",
   },
   {
     title: "INTERN ENGINEER",
@@ -59,7 +59,7 @@ const experiencesList = [
       "Research & Development: Develop the system for being compatible with IoT",
     location: "Izmir/Turkiye - on site",
     dates: "09.2017 ~ 10.2017",
-    techs: "PHP, MySQL, JavaScript, HTML and CSS",
+    techs: "PHP, MySQL, JavaScript, HTML,  CSS",
   },
 ];
 
