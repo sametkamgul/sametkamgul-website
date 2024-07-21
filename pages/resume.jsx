@@ -29,7 +29,7 @@ const Resume = () => {
               </Box>
               <AccordionIcon />
             </AccordionButton>
-            <AccordionPanel alignItems="start">
+            <AccordionPanel>
               <About />
             </AccordionPanel>
           </AccordionItem>
@@ -40,7 +40,7 @@ const Resume = () => {
               </Box>
               <AccordionIcon />
             </AccordionButton>
-            <AccordionPanel alignItems="start">
+            <AccordionPanel>
               <Experiences />
             </AccordionPanel>
           </AccordionItem>
@@ -51,7 +51,7 @@ const Resume = () => {
               </Box>
               <AccordionIcon />
             </AccordionButton>
-            <AccordionPanel alignItems="start">
+            <AccordionPanel>
               <Educations />
             </AccordionPanel>
           </AccordionItem>

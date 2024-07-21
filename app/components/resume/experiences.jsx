@@ -66,12 +66,8 @@ const experiencesList = [
 const Experiences = () => {
   return (
     <VStack
-      divider={
-        <StackDivider
-          borderColor="softBlack"
-          paddingTop="1.2rem"
-        />
-      }
+      divider={<StackDivider borderColor="softBlack" paddingTop="1.2rem" />}
+      alignItems="start"
     >
       {experiencesList.map((e, idx) => (
         <VStack key={idx} textAlign="start" alignItems="start">
