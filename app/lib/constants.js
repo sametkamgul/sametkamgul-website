@@ -2,7 +2,7 @@ const TEXT = {
   maintenance:
     "this page is under construction, a highly trained monkey is working on it",
   description:
-    "Software Developer, Hobbyist, Cyclist, Musicion and the most importantly a constant learner",
+    "Software Developer, Hobbyist, Cyclist, Musician and the most importantly a constant learner",
   subDescription:
     "This page is dedicated to my personal projects, blog posts and resume",
   trademark: "© 2024",
