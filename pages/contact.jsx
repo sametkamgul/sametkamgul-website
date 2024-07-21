@@ -3,13 +3,13 @@ import Navbar from "@/app/components/navbar";
 import { Flex, Text, HStack, Image } from "@chakra-ui/react";
 import React from "react";
 
-const About = () => {
+const Contact = () => {
   return (
     <Flex width="100%">
       <Navbar />
-      <Maintenance />
+      <Maintenance /> 
     </Flex>
   );
 };
 
-export default About;
+export default Contact;

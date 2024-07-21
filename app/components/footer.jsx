@@ -14,6 +14,7 @@ import {
   FaInstagram,
   FaSoundcloud,
 } from "react-icons/fa";
+import constants from "../lib/constants";
 
 const Footer = () => {
   return (
@@ -27,7 +28,7 @@ const Footer = () => {
       paddingRight="20px"
     >
       <HStack gap="1rem" justifyContent="space-between" width="100%">
-        <Text fontSize="1rem">© 2024</Text>
+        <Text fontSize="1rem">{constants.TEXT.trademark}</Text>
         <HStack>
           <Link href="https://www.linkedin.com/in/sametkamgul" isExternal>
             <FaLinkedin size="2rem" color="black" />

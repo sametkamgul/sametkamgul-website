@@ -1,69 +1,98 @@
 import {
+  AbsoluteCenter,
   Box,
+  Center,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerOverlay,
   Flex,
+  GridItem,
   HStack,
+  IconButton,
   Link,
+  Stack,
   Text,
+  useDisclosure,
   useStyleConfig,
   VStack,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React from "react";
+import { HideOnDesktop, HideOnMobile } from "../responsive";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import constants from "../lib/constants";
 
 const Navbar = ({ pageTitle }) => {
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const styles = useStyleConfig("navbar");
 
   let navBarItems = [];
   // hiding home link when in home page
   if (router.pathname !== "/") {
-    navBarItems.push({
-      label: "home",
-      link: "/",
-    });
+    navBarItems.push(constants.NAV.ITEMS.HOME);
   }
 
   navBarItems = [
     ...navBarItems,
-    {
-      label: "resume",
-      link: "/resume",
-    },
-    {
-      label: "blog",
-      link: "/blog",
-    },
-    {
-      label: "projects",
-      link: "/projects",
-    },
-    {
-      label: "about me",
-      link: "/about",
-    },
+    constants.NAV.ITEMS.RESUME,
+    constants.NAV.ITEMS.BLOG,
+    constants.NAV.ITEMS.PROJECTS,
+    constants.NAV.ITEMS.ABOUT,
+    constants.NAV.ITEMS.CONTACT,
   ];
 
   return (
-    <Flex {...styles.nav}>
-      <Text fontSize="2rem" color="white">
-        {pageTitle || "Samet Kamğul"}
-      </Text>
-      <HStack gap="1.8rem">
-        {navBarItems?.map((item, idx) => (
-          <Box key={idx}>
-            <Link href={item.link} {...styles.navItem}>
-              {item.label}
-            </Link>
-          </Box>
-        ))}
+    <>
+      <HideOnMobile>
+        <Flex {...styles.nav}>
+          <Text {...styles.desktopPageTitle}>
+            {pageTitle || "Samet Kamğul"}
+          </Text>
+          <HStack gap="1.8rem">
+            {navBarItems?.map((item, idx) => (
+              <Box key={idx}>
+                <Link href={item.url} {...styles.navItem}>
+                  {item.label}
+                </Link>
+              </Box>
+            ))}
+          </HStack>
+        </Flex>
+      </HideOnMobile>
+      <HideOnDesktop>
+        <Flex {...styles.mobileWrapper}>
+          <AbsoluteCenter axis="horizontal">
+            <Text {...styles.mobileNavTitle}>Samet Kamğul</Text>
+          </AbsoluteCenter>
+          <IconButton
+            aria-label="Menu"
+            onClick={onOpen}
+            icon={<HamburgerIcon />}
+          />
+        </Flex>
+        <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
 
-        {/*    {router.pathname !== "/" && (
-          <Link textDecoration="none" fontSize="1.4rem" color="white" href="/">
-            home
-          </Link>
-        )} */}
-      </HStack>
-    </Flex>
+            <DrawerBody>
+              <GridItem {...styles.gridItem}>
+                {navBarItems?.map((item, idx) => (
+                  <Box key={idx}>
+                    <Link href={item.url} {...styles.navItem}>
+                      {item.label}
+                    </Link>
+                  </Box>
+                ))}
+              </GridItem>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
+      </HideOnDesktop>
+    </>
   );
 };
 

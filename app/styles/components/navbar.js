@@ -10,17 +10,34 @@ const navbar = {
       top: "0",
       left: "0",
       right: "0",
-      height: "64px",
+      height: "4rem",
       flexDirection: "row",
-      "text-wrap": 'no-wrap'
     },
     navItem: {
       textDecoration: "none",
       fontSize: "1.4rem",
-      color: "white",
+      color: { base: "softBlack", lg: "white" },
       _hover: {
         color: "red",
       },
+    },
+    mobileNavTitle: {
+      color: "softWhite",
+      fontSize: "1.5rem",
+    },
+    mobileWrapper: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "end",
+      width: "full",
+      padding: "1rem",
+      backgroundColor: "softBlack",
+      position: "fixed",
+      top: "0"
+    },
+    desktopPageTitle: {
+      fontSize: "2rem",
+      color: "white",
     },
   },
 };
