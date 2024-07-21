@@ -2,7 +2,7 @@ import Navbar from "@/app/components/navbar";
 import { Flex, Text, HStack, Image } from "@chakra-ui/react";
 import React from "react";
 
-const About = () => {
+const Projects = () => {
   return (
     <Flex width="100%">
       <Navbar />
@@ -28,4 +28,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Projects;

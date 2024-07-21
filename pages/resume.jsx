@@ -1,8 +1,10 @@
 import Navbar from "@/app/components/navbar";
-import { Flex, HStack, Stack, Text, Image } from "@chakra-ui/react";
+import { Flex, HStack, Text, Image, useStyleConfig } from "@chakra-ui/react";
 import React from "react";
 
 const Resume = () => {
+  const styles = useStyleConfig("maintenance");
+
   return (
     <Flex width="100%">
       <Navbar />
@@ -19,9 +21,7 @@ const Resume = () => {
             src="../../assets/maintenance.png"
             alt="maintenance icon"
           />
-          <Text color="black" fontSize="2rem">
-            this page is under construction
-          </Text>
+          <Text {...styles.text}>this page is under construction</Text>
         </HStack>
       </Flex>
     </Flex>

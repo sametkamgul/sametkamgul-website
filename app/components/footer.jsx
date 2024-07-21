@@ -8,29 +8,40 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaSoundcloud,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
     <Flex
-      backgroundColor="#ffeece"
       alignItems="center"
       justifyContent="space-between"
-      position="absolute"
-      paddingLeft="20px"
-      paddingRight="20px"
-      bottom="0"
       left="0"
       right="0"
-      height="50px"
-      borderTop="2px solid black"
+      height="75px"
+      paddingLeft="20px"
+      paddingRight="20px"
     >
-      <HStack gap="1rem">
-        <Link href="https://www.linkedin.com/in/sametkamgul" isExternal>
-          <Image color="white" src="../../assets/linkedin.png" alt="linkedin" width="2rem" />
-        </Link>
-        <Link href="https://github.com/sametkamgul" isExternal>
-          <Image src="../../assets/github.png" alt="github" width="2rem" />
-        </Link>
+      <HStack gap="1rem" justifyContent="space-between" width="100%">
+        <Text fontSize="1rem">© 2024</Text>
+        <HStack>
+          <Link href="https://www.linkedin.com/in/sametkamgul" isExternal>
+            <FaLinkedin size="2rem" color="black" />
+          </Link>
+          <Link href="https://github.com/sametkamgul" isExternal>
+            <FaGithub size="2rem" color="black" />
+          </Link>
+          <Link href="https://instagram.com/sametkamgul" isExternal>
+            <FaInstagram size="2rem" color="black" />
+          </Link>
+          <Link href="https://soundcloud.com/sametkamgul" isExternal>
+            <FaSoundcloud size="2rem" color="black" />
+          </Link>
+        </HStack>
       </HStack>
     </Flex>
   );
