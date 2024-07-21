@@ -12,6 +12,7 @@ const colors = {
 
   softWhite: "#fafafa",
   softBlack: "#020617",
+  softGrey: "#555555",
   placeholderWhite: "#dddddd",
   placeholderBlack: "#333333",
 

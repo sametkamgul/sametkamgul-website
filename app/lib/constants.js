@@ -6,15 +6,15 @@ const TEXT = {
   subDescription:
     "This page is dedicated to my personal projects, blog posts and resume",
   trademark: "© 2024",
-  go_home: 'go home'
+  go_home: "go home",
 };
 
 const NAV = {
   ITEMS: {
     HOME: {
-        label: "home",
-        url: "/",
-      },
+      label: "home",
+      url: "/",
+    },
     RESUME: {
       label: "resume",
       url: "/resume",
