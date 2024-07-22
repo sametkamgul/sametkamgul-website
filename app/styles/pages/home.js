@@ -4,13 +4,13 @@ const home = {
       gap: { base: "0.5rem", lg: "4rem" },
     },
     wrapper: {
-      paddingTop: { base: "6rem", lg: "6rem" },
-      gap: { base: "2rem", lg: "4rem" },
+      paddingTop: { base: "6rem", lg: "0rem" },
+      gap: { base: "2rem", lg: "0rem" },
     },
     subWrapper: {
       gap: "2rem",
       padding: { base: "0rem", lg: "4rem" },
-      direction: { base: "column", lg: "row" },
+      direction: "column",
       alignItems: "center",
     },
     description: {
@@ -25,8 +25,9 @@ const home = {
       alignItems: "center",
       display: "flex",
       textAlign: "center",
+      padding: "1rem",
     },
-    image: {
+    icon: {
       boxSize: "5xs",
       borderRadius: "100%",
     },

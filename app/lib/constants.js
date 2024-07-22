@@ -1,8 +1,10 @@
 const TEXT = {
   maintenance:
     "this page is under construction, a highly trained monkey is working on it",
-  description:
-    "Software Developer, Hobbyist, Cyclist, Musician and the most importantly a constant learner",
+  description: {
+    prefix: 'Software Developer',
+    words: [ "Hobbyist", "Cyclist", "Musician", "Fast Learner",]
+  },
   subDescription:
     "This page is dedicated to my personal projects, blog posts and resume",
   trademark: "© 2024",
