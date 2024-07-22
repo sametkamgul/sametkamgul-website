@@ -21,7 +21,7 @@ const Resume = () => {
     <Flex width="100%" paddingTop="5rem">
       <Navbar />
       <Center width="full" height="full">
-        <Accordion width="full">
+        <Accordion width="full" allowToggle>
           <AccordionItem>
             <AccordionButton>
               <Box flex="1" textAlign="center" fontSize="4xl">
