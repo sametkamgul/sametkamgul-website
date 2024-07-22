@@ -15,6 +15,7 @@ const Home = () => {
         <Stack {...styles.subWrapper}>
           <Image
             {...styles.icon}
+            sx={{ _hover: { scaleX: -1, transform: 'auto' } }}
             src="../../../../assets/samet.jpeg"
             alt="Samet Kamğul"
           />
@@ -32,10 +33,7 @@ const Home = () => {
               wrapperClassName: "typewriter-wrapper",
             }}
             onInit={(typewriter) => {
-              typewriter
-                .pauseFor(30)
-                .deleteAll()
-                .start();
+              typewriter.pauseFor(30).deleteAll().start();
             }}
           />
         </Stack>
