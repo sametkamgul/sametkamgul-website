@@ -16,8 +16,10 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "@tanstack/react-query";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
+  const recaptchaRef = React.createRef();
   const toast = useToast();
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -40,7 +42,7 @@ const Contact = () => {
         .max(200, "Must be 15 characters or less")
         .required("Required"),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const templateParams = {
         name: `${values.firstName} ${values.lastName}`,
         sender: values.email,
@@ -48,7 +50,11 @@ const Contact = () => {
         subject: "Contact Form",
       };
 
-      mutation.mutate(templateParams);
+      const token = await recaptchaRef.current.executeAsync();
+
+      if (token) {
+        mutation.mutate(templateParams);
+      }
     },
   });
 
@@ -186,6 +192,7 @@ const Contact = () => {
                   border: "1px solid",
                   borderColor: "softBlack",
                 }}
+                isLoading={mutation.isPending}
               >
                 send message
               </Button>
@@ -193,6 +200,13 @@ const Contact = () => {
           </form>
         )}
       </AbsoluteCenter>
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        size="invisible"
+        style={{ display: "inline-block" }}
+        theme="dark"
+        sitekey="6LeU6xYqAAAAAB-J4-ujWYjB00HqfoYH7Ao9EX6J"
+      />
     </Flex>
   );
 };
