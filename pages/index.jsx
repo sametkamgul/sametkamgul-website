@@ -4,9 +4,24 @@ import constants from "@/app/lib/constants";
 import { Image, Stack, Text, VStack, useStyleConfig } from "@chakra-ui/react";
 import Typewriter from "typewriter-effect";
 import "@/app/styles/css/typewriter.css";
+import TagManager from "react-gtm-module";
+import { useEffect } from "react";
 
 const Home = () => {
   const styles = useStyleConfig("home");
+
+  const tagManagerArgs = {
+    dataLayer: {
+      userId: "001",
+      userProject: "project",
+      page: "home",
+    },
+    dataLayerName: "PageDataLayer",
+  };
+
+  useEffect(() => {
+    TagManager.dataLayer(tagManagerArgs);
+  });
 
   return (
     <Stack {...styles.main}>
@@ -15,7 +30,7 @@ const Home = () => {
         <Stack {...styles.subWrapper}>
           <Image
             {...styles.icon}
-            sx={{ _hover: { scaleX: -1, transform: 'auto' } }}
+            sx={{ _hover: { scaleX: -1, transform: "auto" } }}
             src="../../../../assets/samet.jpeg"
             alt="Samet Kamğul"
           />

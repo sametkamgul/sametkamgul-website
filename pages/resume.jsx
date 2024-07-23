@@ -3,6 +3,7 @@ import Navbar from "@/app/components/navbar";
 import About from "@/app/components/resume/about";
 import Educations from "@/app/components/resume/education";
 import Experiences from "@/app/components/resume/experiences";
+import gtmHelper from "@/app/lib/gtmHelper";
 import {
   Accordion,
   AccordionButton,
@@ -14,16 +15,19 @@ import {
   Flex,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
+import TagManager from "react-gtm-module";
 
 const Resume = () => {
+gtmHelper.sendEvent('/resumes')
+
   return (
     <Flex width="100%" paddingTop="5rem">
       <Navbar />
       <Center width="full" height="full">
         <Accordion width="full" allowToggle>
-          <AccordionItem>
-            <AccordionButton>
+          <AccordionItem >
+            <AccordionButton _expanded={{backgroundColor: 'softBlack', color: 'white'}}>
               <Box flex="1" textAlign="center" fontSize="4xl">
                 About
               </Box>
@@ -34,7 +38,7 @@ const Resume = () => {
             </AccordionPanel>
           </AccordionItem>
           <AccordionItem>
-            <AccordionButton>
+            <AccordionButton _expanded={{backgroundColor: 'softBlack', color: 'white'}}>
               <Box flex="1" textAlign="center" fontSize="4xl">
                 Experiences
               </Box>
@@ -45,7 +49,7 @@ const Resume = () => {
             </AccordionPanel>
           </AccordionItem>
           <AccordionItem>
-            <AccordionButton>
+            <AccordionButton _expanded={{backgroundColor: 'softBlack', color: 'white'}}>
               <Box flex="1" textAlign="center" fontSize="4xl">
                 Educations
               </Box>
