@@ -48,9 +48,11 @@ const Navbar = ({ pageTitle }) => {
     <>
       <HideOnMobile>
         <Flex {...styles.nav}>
-          <Text {...styles.desktopPageTitle}>
-            {pageTitle || "Samet Kamğul"}
-          </Text>
+          <Link href="/">
+            <Text {...styles.desktopPageTitle}>
+              {pageTitle || "Samet Kamğul"}
+            </Text>
+          </Link>
           <HStack gap="1.8rem">
             {navBarItems?.map((item, idx) => (
               <Box key={idx}>
@@ -65,7 +67,9 @@ const Navbar = ({ pageTitle }) => {
       <HideOnDesktop>
         <Flex {...styles.mobileWrapper}>
           <AbsoluteCenter axis="horizontal">
-            <Text {...styles.mobileNavTitle}>Samet Kamğul</Text>
+            <Link href="/">
+              <Text {...styles.mobileNavTitle}>Samet Kamğul</Text>
+            </Link>
           </AbsoluteCenter>
           <IconButton
             aria-label="Menu"
