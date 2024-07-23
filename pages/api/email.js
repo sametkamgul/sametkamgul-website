@@ -6,10 +6,11 @@ export default async function handler(req, res) {
     const templateParams = JSON.parse(req.body);
 
     let result = {};
+    let response = false;
     if (templateParams) {
-      result = await emailHelper.sendEmail(templateParams);
+      response = await emailHelper.sendEmail(templateParams);
 
-      if (result) {
+      if (response) {
         result = { message: "email is sent", error: false };
       } else {
         result = { message: "unknown error", error: true };
