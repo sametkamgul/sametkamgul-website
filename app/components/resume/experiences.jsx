@@ -11,7 +11,7 @@ const experiencesList = [
     location: "Izmir/Turkiye - remote",
     dates: "06.2023 - still working",
     techs:
-      "JavaScript, React, jQuery Node.js, github, eCommerce",
+      "JavaScript, React, jQuery, Node.js, github, eCommerce",
   },
   {
     title: "Backend Developer",

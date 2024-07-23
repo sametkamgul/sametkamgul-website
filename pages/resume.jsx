@@ -16,7 +16,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
-import TagManager from "react-gtm-module";
 
 const Resume = () => {
 gtmHelper.sendEvent('/resumes')
@@ -25,7 +24,7 @@ gtmHelper.sendEvent('/resumes')
     <Flex width="100%" paddingTop="5rem">
       <Navbar />
       <Center width="full" height="full">
-        <Accordion width="full" allowToggle>
+        <Accordion width="50rem" allowToggle>
           <AccordionItem >
             <AccordionButton _expanded={{backgroundColor: 'softBlack', color: 'white'}}>
               <Box flex="1" textAlign="center" fontSize="4xl">
