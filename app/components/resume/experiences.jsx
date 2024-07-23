@@ -4,27 +4,27 @@ import Tags from "./tags";
 
 const experiencesList = [
   {
-    title: "SOFTWARE DEVELOPER",
+    title: "Software Developer",
     company: "feature/mind",
     compantyURL: "https://www.featuremind.com",
     roles: "Frontend Development, Backend Development",
     location: "Izmir/Turkiye - remote",
     dates: "06.2023 - still working",
     techs:
-      "JavaScript, React, jQuery, Salesforce SFCC, Node.js, PWA/Headless API, github,eCommerce",
+      "JavaScript, React, jQuery Node.js, github, eCommerce",
   },
   {
-    title: "BACKEND DEVELOPER",
+    title: "Backend Developer",
     company: "OSF Digital",
     compantyURL: "https://www.osfdigital.com",
     roles: "Backend Development",
     location: "Izmir/Turkiye - remote",
     dates: "12.2021 ~ 06.2023",
     techs:
-      "Node.js, JavaScript, React, jQuery, Salesforce SFCC, github, eCommerce",
+      "Node.js, JavaScript, React, jQuery, github, eCommerce",
   },
   {
-    title: "SOFTWARE DEVELOPMENT ENGINEER IN TEST",
+    title: "Software Development Engineer in Test (SDET)",
     company: "Payten",
     compantyURL: "https://www.payten.com",
     roles: "Automation test development",
@@ -33,7 +33,7 @@ const experiencesList = [
     techs: "Java, Selenium, git, MySql",
   },
   {
-    title: "SOFTWARE DEVELOPER",
+    title: "Software Developer",
     company: "MATE Marketing Technologies",
     compantyURL: "https://www.mate.com.tr",
     roles: "Development of apps and hardwares",
@@ -42,7 +42,7 @@ const experiencesList = [
     techs: "Python, OpenCV, MySQL, C/C++",
   },
   {
-    title: "SOFTWARE DEVELOPER",
+    title: "Software Developer",
     company: "Proge",
     compantyURL: "https://www.progeltd.com/",
     roles:
@@ -52,7 +52,7 @@ const experiencesList = [
     techs: "PHP, MySQL, JavaScript, HTML, CSS",
   },
   {
-    title: "INTERN ENGINEER",
+    title: "Intern Engineer",
     company: "Proge",
     compantyURL: "https://www.progeltd.com/",
     roles:
@@ -70,8 +70,8 @@ const Experiences = () => {
       alignItems="start"
     >
       {experiencesList.map((e, idx) => (
-        <VStack key={idx} textAlign="start" alignItems="start">
-          <Text fontSize="2xl" textAlign="center !important">
+        <VStack key={idx} textAlign="start" alignItems="start" alignSelf="center" width="full">
+          <Text fontSize="2xl" textAlign="center" display="flex" alignSelf="center">
             {e.title}
           </Text>
           <HStack>
