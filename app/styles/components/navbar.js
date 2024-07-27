@@ -33,7 +33,8 @@ const navbar = {
       padding: "1rem",
       backgroundColor: "softBlack",
       position: "fixed",
-      top: "0"
+      top: "0",
+      left: "0",
     },
     desktopPageTitle: {
       fontSize: "2rem",

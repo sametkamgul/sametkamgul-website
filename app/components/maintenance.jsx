@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Image,
-  Link,
-  Stack,
-  Text,
-  useStyleConfig,
-} from "@chakra-ui/react";
+import { Flex, Image, Stack, Text, useStyleConfig } from "@chakra-ui/react";
 import React from "react";
 import constants from "../lib/constants";
 

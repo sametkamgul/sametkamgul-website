@@ -2,14 +2,15 @@ const maintenance = {
   baseStyle: {
     wrapper: {
       padding: { base: "1rem", lg: "2rem" },
-      width: "100%",
+      width: "100vw",
+      height: "100vh",
+      alignItems: "center",
+      justifyContent: "center",
     },
     subWrapper: {
       gap: "2rem",
-      alignItems: "center",
-      justifyContent: "center",
-      paddingTop: "8rem",
       direction: { base: "column", lg: "row" },
+      alignItems: "center",
     },
     icon: {
       boxSize: "12rem",

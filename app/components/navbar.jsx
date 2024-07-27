@@ -1,7 +1,6 @@
 import {
   AbsoluteCenter,
   Box,
-  Center,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -12,16 +11,15 @@ import {
   HStack,
   IconButton,
   Link,
-  Stack,
   Text,
   useDisclosure,
   useStyleConfig,
-  VStack,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React from "react";
 import { HideOnDesktop, HideOnMobile } from "../responsive";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { motion } from "framer-motion";
 import constants from "../lib/constants";
 
 const Navbar = ({ pageTitle }) => {
@@ -49,15 +47,28 @@ const Navbar = ({ pageTitle }) => {
       <HideOnMobile>
         <Flex {...styles.nav}>
           <Link href="/">
-            <Text {...styles.desktopPageTitle}>
-              {pageTitle || "Samet Kamğul"}
-            </Text>
+            <motion.div
+              initial={{ y: -1000 }}
+              animate={{ y: 0, transition: { duration: 0.5 } }}
+            >
+              <Text {...styles.desktopPageTitle}>
+                {pageTitle || "Samet Kamğul"}
+              </Text>
+            </motion.div>
           </Link>
           <HStack gap="1.8rem">
             {navBarItems?.map((item, idx) => (
               <Box key={idx}>
                 <Link href={item.url} {...styles.navItem}>
-                  {item.label}
+                  <motion.div
+                    initial={{ y: -100 }}
+                    animate={{
+                      y: 0,
+                      transition: { duration: `${0.25 * (1 + idx / 2.5)}` },
+                    }}
+                  >
+                    {item.label}
+                  </motion.div>
                 </Link>
               </Box>
             ))}
@@ -68,7 +79,12 @@ const Navbar = ({ pageTitle }) => {
         <Flex {...styles.mobileWrapper}>
           <AbsoluteCenter axis="horizontal">
             <Link href="/">
-              <Text {...styles.mobileNavTitle}>Samet Kamğul</Text>
+              <motion.div
+                initial={{ y: -100 }}
+                animate={{ y: 0, transition: { duration: 0.25 } }}
+              >
+                <Text {...styles.mobileNavTitle}>Samet Kamğul</Text>
+              </motion.div>
             </Link>
           </AbsoluteCenter>
           <IconButton
