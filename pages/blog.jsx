@@ -6,7 +6,7 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <Flex width="100%">
+    <Flex width="100%" height="100vh">
       <Navbar />
       <Posts />
     </Flex>
