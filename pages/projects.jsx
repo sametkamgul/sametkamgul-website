@@ -17,12 +17,12 @@ const Projects = () => {
       <Flex>
         <Navbar />
         <MyProjects />
-        <ScrollToTop
-          smooth={true}
-          {...styles.scrollToTop}
-          style={styles.scrollToTopInner}
-        />
       </Flex>
+      <ScrollToTop
+        smooth={true}
+        {...styles.scrollToTop}
+        style={styles.scrollToTopInner}
+      />
     </motion.div>
   );
 };

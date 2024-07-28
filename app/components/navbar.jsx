@@ -16,7 +16,7 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HideOnDesktop, HideOnMobile } from "../responsive";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
@@ -26,6 +26,12 @@ const Navbar = ({ pageTitle }) => {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const styles = useStyleConfig("navbar");
+  const [windowHeight, setWindowHeight] = useState(0);
+
+  // fix for drawer height problem on projects page
+  useEffect(() => {
+    setWindowHeight(window?.innerHeight);
+  }, []);
 
   let navBarItems = [];
   // hiding home link when in home page
@@ -94,10 +100,9 @@ const Navbar = ({ pageTitle }) => {
           />
         </Flex>
         <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-          <DrawerOverlay />
-          <DrawerContent>
+          <DrawerOverlay height={windowHeight} />
+          <DrawerContent maxHeight={windowHeight}>
             <DrawerCloseButton />
-
             <DrawerBody>
               <GridItem {...styles.gridItem}>
                 {navBarItems?.map((item, idx) => (
