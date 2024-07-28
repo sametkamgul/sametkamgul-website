@@ -1,10 +1,9 @@
 import Navbar from "@/app/components/navbar";
 import MyProjects from "@/app/components/projects/myProjects";
-import { Flex, Stack, useStyleConfig } from "@chakra-ui/react";
+import { Flex, useStyleConfig } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
 import ScrollToTop from "react-scroll-to-top";
-import { ArrowUpIcon } from "@chakra-ui/icons";
 
 const Projects = () => {
   const styles = useStyleConfig("projects");

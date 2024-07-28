@@ -4,6 +4,7 @@ import theme from "../app/styles/theme";
 import overrides from "@/app/styles/overrides";
 import GlobalStyle from "../app/styles/styles";
 import "@/app/styles/css/nprogress.css";
+import "@/app/globals.css"
 import nProgress from "nprogress";
 import "@fontsource/geist-sans";
 import TagManager from "react-gtm-module";

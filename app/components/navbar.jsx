@@ -5,6 +5,7 @@ import {
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
+  DrawerHeader,
   DrawerOverlay,
   Flex,
   GridItem,
@@ -34,6 +35,7 @@ const Navbar = ({ pageTitle }) => {
   }, []);
 
   let navBarItems = [];
+
   // hiding home link when in home page
   if (router.pathname !== "/") {
     navBarItems.push(constants.NAV.ITEMS.HOME);
@@ -99,15 +101,19 @@ const Navbar = ({ pageTitle }) => {
             icon={<HamburgerIcon />}
           />
         </Flex>
-        <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-          <DrawerOverlay height={windowHeight} />
-          <DrawerContent maxHeight={windowHeight}>
-            <DrawerCloseButton />
-            <DrawerBody>
-              <GridItem {...styles.gridItem}>
+        <Drawer isOpen={isOpen} placement="top" onClose={onClose}>
+          <DrawerOverlay width="full" height="full" />
+          <DrawerContent>
+            <DrawerCloseButton size="lg" />
+            <DrawerBody
+              paddingTop="2rem"
+              paddingBottom="2rem"
+              alignSelf="center"
+            >
+              <GridItem>
                 {navBarItems?.map((item, idx) => (
-                  <Box key={idx}>
-                    <Link href={item.url} {...styles.navItem}>
+                  <Box key={idx} textAlign="center">
+                    <Link href={item.url} {...styles.navItem} fontSize="2rem">
                       {item.label}
                     </Link>
                   </Box>

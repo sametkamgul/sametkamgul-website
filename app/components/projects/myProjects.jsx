@@ -4,17 +4,22 @@ import {
   Text,
   HStack,
   StackDivider,
-  Flex,
-  Center,
-  AbsoluteCenter,
   Stack,
   Grid,
-  Box,
+  Flex,
 } from "@chakra-ui/react";
 import React from "react";
 import Tags from "../common/tags";
 
 const projectsList = [
+  {
+    title: "www.sametkamgul.com",
+    description: "a personal website",
+    projectURL: "https://www.sametkamgul.com",
+    sourceURL: "https://github.com/sametkamgul/sametkamgul-website",
+    techs:
+      "Next.js, git, framer motion, chakra ui, tanstack query, formik, vercel",
+  },
   {
     title: "Text Analyzer API",
     description: "a word/sentence analyzer API for given text",
@@ -68,14 +73,15 @@ const MyProjects = () => {
       marginTop="6rem"
       marginBottom="8rem"
       alignItems="center"
-      width={{ sm: "full" }}
+      width={{ base: "full" }}
     >
       <Text fontSize={{ base: "2rem", md: "3rem" }}>Projects</Text>
       {projectsList.map((e, idx) => (
         <Grid
           key={idx}
-          alignItems="center"
-          width={{ base: "full", md: "40rem", lg: "40rem" }}
+          alignItems="start"
+          justifyContent={{ base: "center", sm: "stretch" }}
+          width={{ base: "full", sm: "30rem" }}
         >
           <Stack>
             <Text fontSize="2xl" textAlign="center">
@@ -83,8 +89,8 @@ const MyProjects = () => {
             </Text>
           </Stack>
 
-          <VStack paddingLeft="2rem" paddingRight="2rem">
-            <HStack alignSelf="baseline">
+          <VStack width={{ base: "20rem", sm: "30rem" }} justifySelf="center">
+            <HStack alignSelf="baseline" alignItems="baseline">
               <Text
                 border="1px solid"
                 borderColor="softBlack"
@@ -92,13 +98,14 @@ const MyProjects = () => {
                 padding="0.125rem"
                 backgroundColor="softGrey"
                 color="white"
+                height="full"
               >
                 description:
               </Text>
               <Text>{e.description}</Text>
             </HStack>
             {e.projectURL && (
-              <HStack alignSelf="baseline">
+              <HStack alignSelf="baseline" alignItems="baseline">
                 <Text
                   border="1px solid"
                   borderColor="softBlack"
@@ -110,12 +117,20 @@ const MyProjects = () => {
                   project url:
                 </Text>
                 <Link href={e.projectURL} isExternal={true}>
-                  <Text>{e.projectURL}</Text>
+                  <Text
+                    border="1px solid"
+                    borderColor="softBlack"
+                    borderRadius="0.25rem"
+                    padding="0.125rem"
+                    _hover={{ color: "white", backgroundColor: "softBlack" }}
+                  >
+                    open
+                  </Text>
                 </Link>
               </HStack>
             )}
             {e.sourceURL && (
-              <HStack alignSelf="baseline">
+              <HStack alignSelf="baseline" alignItems="baseline">
                 <Text
                   border="1px solid"
                   borderColor="softBlack"
@@ -127,7 +142,15 @@ const MyProjects = () => {
                   source code:
                 </Text>
                 <Link href={e.sourceURL} isExternal={true}>
-                  <Text>{e.sourceURL}</Text>
+                  <Text
+                    border="1px solid"
+                    borderColor="softBlack"
+                    borderRadius="0.25rem"
+                    padding="0.125rem"
+                    _hover={{ color: "white", backgroundColor: "softBlack" }}
+                  >
+                    open
+                  </Text>
                 </Link>
               </HStack>
             )}

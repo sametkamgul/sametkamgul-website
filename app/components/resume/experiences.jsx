@@ -70,11 +70,11 @@ const Experiences = () => {
       alignItems="start"
     >
       {experiencesList.map((e, idx) => (
-        <VStack key={idx} textAlign="start" alignItems="start" alignSelf="center" width="full">
+        <VStack key={idx} textAlign="start" alignItems="start" alignSelf="center" width={{base: "full", sm: "25rem"}}>
           <Text fontSize="2xl" textAlign="center" display="flex" alignSelf="center">
             {e.title}
           </Text>
-          <HStack>
+          <HStack alignItems="baseline">
             <Text
               border="1px solid"
               borderColor="softBlack"
@@ -89,7 +89,7 @@ const Experiences = () => {
               {e.company}
             </Link>
           </HStack>
-          <HStack>
+          <HStack alignItems="baseline">
             <Text
               border="1px solid"
               borderColor="softBlack"
@@ -102,7 +102,7 @@ const Experiences = () => {
             </Text>
             <Text>{e.roles}</Text>
           </HStack>
-          <HStack>
+          <HStack alignItems="baseline">
             <Text
               border="1px solid"
               borderColor="softBlack"
@@ -115,7 +115,7 @@ const Experiences = () => {
             </Text>
             <Text>{e.location}</Text>
           </HStack>
-          <HStack>
+          <HStack alignItems="baseline">
             <Text
               border="1px solid"
               borderColor="softBlack"
