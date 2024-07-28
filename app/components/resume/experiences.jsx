@@ -1,6 +1,6 @@
 import { VStack, Link, Text, HStack, StackDivider } from "@chakra-ui/react";
 import React from "react";
-import Tags from "./tags";
+import Tags from "../common/tags";
 
 const experiencesList = [
   {

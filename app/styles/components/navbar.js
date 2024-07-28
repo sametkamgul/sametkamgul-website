@@ -12,6 +12,7 @@ const navbar = {
       right: "0",
       height: "4rem",
       flexDirection: "row",
+      zIndex: "1000",
     },
     navItem: {
       textDecoration: "none",
@@ -35,6 +36,7 @@ const navbar = {
       position: "fixed",
       top: "0",
       left: "0",
+      zIndex: "1000"
     },
     desktopPageTitle: {
       fontSize: "2rem",

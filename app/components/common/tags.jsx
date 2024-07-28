@@ -27,6 +27,7 @@ const Tags = ({ tags = "" }) => {
             borderColor="softBlack"
             borderRadius="0.25rem"
             padding="0.125rem"
+            _hover={{color: "white", backgroundColor: "softBlack"}}
           >
             <Text>{t}</Text>
           </Box>

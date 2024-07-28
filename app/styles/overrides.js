@@ -8,11 +8,12 @@ import sizes from "./foundations/sizes";
 import navbar from "./components/navbar";
 import maintenance from "./components/maintenance";
 import home from "./pages/home";
+import projects from "./pages/projects";
 
 export const overrides = merge(theme, {
   colors,
   sizes,
-  components: { navbar, maintenance, home },
+  components: { navbar, maintenance, home, projects },
 });
 
 export default extendTheme(overrides);

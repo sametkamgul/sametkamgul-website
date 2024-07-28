@@ -12,10 +12,14 @@ import {
   Box,
   Center,
   Flex,
+  useStyleConfig,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import ScrollToTop from "react-scroll-to-top";
 
 const Resume = () => {
+  const styles = useStyleConfig("projects");
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -67,6 +71,11 @@ const Resume = () => {
           </Accordion>
         </Center>
       </Flex>
+      <ScrollToTop
+        smooth={true}
+        {...styles.scrollToTop}
+        style={styles.scrollToTopInner}
+      />
     </motion.div>
   );
 };
