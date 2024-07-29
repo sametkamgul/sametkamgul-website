@@ -4,9 +4,11 @@ import { Flex, useStyleConfig } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
 import ScrollToTop from "react-scroll-to-top";
+import useContents from "@/app/hooks/useContents";
 
 const Projects = () => {
   const styles = useStyleConfig("projects");
+  const { data, isLoading } = useContents();
 
   return (
     <motion.div
@@ -15,7 +17,7 @@ const Projects = () => {
     >
       <Flex>
         <Navbar />
-        <MyProjects />
+        <MyProjects projects={data?.projects} isLoading={isLoading} />
       </Flex>
       <ScrollToTop
         smooth={true}

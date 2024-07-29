@@ -12,12 +12,15 @@ import {
   Box,
   Center,
   Flex,
+  Spinner,
   useStyleConfig,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ScrollToTop from "react-scroll-to-top";
+import useContents from "@/app/hooks/useContents";
 
 const Resume = () => {
+  const { data, isLoading } = useContents();
   const styles = useStyleConfig("projects");
 
   return (
@@ -27,49 +30,60 @@ const Resume = () => {
     >
       <Flex width="100%" paddingTop="5rem">
         <Navbar />
-        <Center width="full" height="full">
-          <Accordion width="50rem" allowToggle>
-            <AccordionItem>
-              <AccordionButton
-                _expanded={{ backgroundColor: "softBlack", color: "white" }}
-              >
-                <Box flex="1" textAlign="center" fontSize="4xl">
-                  About
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-              <AccordionPanel>
-                <About />
-              </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-              <AccordionButton
-                _expanded={{ backgroundColor: "softBlack", color: "white" }}
-              >
-                <Box flex="1" textAlign="center" fontSize="4xl">
-                  Experiences
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-              <AccordionPanel>
-                <Experiences />
-              </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-              <AccordionButton
-                _expanded={{ backgroundColor: "softBlack", color: "white" }}
-              >
-                <Box flex="1" textAlign="center" fontSize="4xl">
-                  Educations
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
-              <AccordionPanel>
-                <Educations />
-              </AccordionPanel>
-            </AccordionItem>
-          </Accordion>
-        </Center>
+        {isLoading ? (
+          <Flex
+            alignItems="center"
+            justifyContent="center"
+            width="full"
+            height="100vh"
+          >
+            <Spinner width="3rem" height="3rem" alignSelf="center" />
+          </Flex>
+        ) : (
+          <Center width="full" height="full">
+            <Accordion width="50rem" allowToggle>
+              <AccordionItem>
+                <AccordionButton
+                  _expanded={{ backgroundColor: "softBlack", color: "white" }}
+                >
+                  <Box flex="1" textAlign="center" fontSize="4xl">
+                    About
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel>
+                  <About about={data?.about} />
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem>
+                <AccordionButton
+                  _expanded={{ backgroundColor: "softBlack", color: "white" }}
+                >
+                  <Box flex="1" textAlign="center" fontSize="4xl">
+                    Experiences
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel>
+                  <Experiences experiences={data?.experiences} />
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem>
+                <AccordionButton
+                  _expanded={{ backgroundColor: "softBlack", color: "white" }}
+                >
+                  <Box flex="1" textAlign="center" fontSize="4xl">
+                    Educations
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel>
+                  <Educations education={data?.education} />
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
+          </Center>
+        )}
       </Flex>
       <ScrollToTop
         smooth={true}

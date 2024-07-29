@@ -6,68 +6,23 @@ import {
   StackDivider,
   Stack,
   Grid,
+  Spinner,
   Flex,
 } from "@chakra-ui/react";
 import React from "react";
 import Tags from "../common/tags";
 
-const projectsList = [
-  {
-    title: "www.sametkamgul.com",
-    description: "a personal website",
-    projectURL: "https://www.sametkamgul.com",
-    sourceURL: "https://github.com/sametkamgul/sametkamgul-website",
-    techs:
-      "Next.js, git, framer motion, chakra ui, tanstack query, formik, vercel",
-  },
-  {
-    title: "Text Analyzer API",
-    description: "a word/sentence analyzer API for given text",
-    projectURL: "https://rapidapi.com/sametkamgul/api/text-analyzer-api",
-    sourceURL: "https://github.com/sametkamgul/Word-Analyzer-API",
-    techs: "Node.js, git, jest, rapidapi, netlify",
-  },
-  {
-    title: "Kerevizlog",
-    description: "a logger npm package",
-    projectURL: "https://www.npmjs.com/package/kerevizlog",
-    sourceURL: "https://github.com/sametkamgul/kerevizlog",
-    techs: "JavaScript, npm, git",
-  },
-  {
-    title: "Youtube Ad Auto Skip",
-    description: "a chrome extension for skipping ads automatically",
-    projectURL: "",
-    sourceURL: "https://github.com/sametkamgul/youtube-ad-auto-skip",
-    techs: "JavaScript",
-  },
-  {
-    title: "Image Uploading With QR Code",
-    description: "a Web browser based photo booth",
-    projectURL: "https://snapmate.com.tr/code.html",
-    sourceURL: "",
-    techs: "Node.js, JavaScript, HTML, AWS Services",
-  },
-  {
-    title: "Pinball Game Controlled by Facial Gestures",
-    description: "A pinball machine is controlled by human facial gestures.",
-    projectURL: "https://mate.com.tr/projeler/gulumse-sarjini-fulle/",
-    sourceURL: "",
-    techs: "Python, OpenCV, MySQL, Arduino",
-  },
-  {
-    title:
-      "Python/OpenCV Image Processing Software Powered by Machine Learning",
-    description:
-      "a realtime Fast style transfer Machine Learning model(Picasso's Cubism art style)",
-    projectURL: "https://mate.com.tr/projeler/deha-picasso/",
-    sourceURL: "",
-    techs: "Python, OpenCV, MySQL, Machine Learning",
-  },
-];
-
-const MyProjects = () => {
-  return (
+const MyProjects = ({ projects, isLoading }) => {
+  return isLoading ? (
+    <Flex
+      alignItems="center"
+      justifyContent="center"
+      width="full"
+      height="100vh"
+    >
+      <Spinner width="3rem" height="3rem" alignSelf="center" />
+    </Flex>
+  ) : (
     <VStack
       divider={<StackDivider borderColor="softBlack" paddingTop="1.2rem" />}
       marginTop="6rem"
@@ -76,7 +31,7 @@ const MyProjects = () => {
       width={{ base: "full" }}
     >
       <Text fontSize={{ base: "2rem", md: "3rem" }}>Projects</Text>
-      {projectsList.map((e, idx) => (
+      {projects?.map((e, idx) => (
         <Grid
           key={idx}
           alignItems="start"
