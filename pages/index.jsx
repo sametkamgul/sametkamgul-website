@@ -1,7 +1,14 @@
 import Footer from "@/app/components/footer";
 import Navbar from "@/app/components/navbar";
 import constants from "@/app/lib/constants";
-import { Image, Stack, Text, VStack, useStyleConfig } from "@chakra-ui/react";
+import {
+  Image,
+  Stack,
+  Text,
+  VStack,
+  useColorModeValue,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import Typewriter from "typewriter-effect";
 import "@/app/styles/css/typewriter.css";
 import TagManager from "react-gtm-module";
@@ -10,6 +17,7 @@ import { motion } from "framer-motion";
 
 const Home = () => {
   const styles = useStyleConfig("home");
+  const textColor = useColorModeValue("softBlack", "white");
 
   const tagManagerArgs = {
     dataLayer: {
@@ -39,10 +47,12 @@ const Home = () => {
               src="../../../../assets/samet.jpeg"
               alt="Samet Kamğul"
             />
-            <Text {...styles.description}>
+            <Text {...styles.description} color={textColor}>
               {constants.TEXT.description.prefix}
             </Text>
-            <Text {...styles.description}>and</Text>
+            <Text {...styles.description} color={textColor}>
+              and
+            </Text>
             <Typewriter
               options={{
                 strings: constants.TEXT.description.words,

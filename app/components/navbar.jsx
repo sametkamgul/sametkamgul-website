@@ -5,21 +5,23 @@ import {
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerHeader,
   DrawerOverlay,
   Flex,
   GridItem,
   HStack,
   IconButton,
   Link,
+  Switch,
   Text,
+  useColorMode,
+  useColorModeValue,
   useDisclosure,
   useStyleConfig,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { HideOnDesktop, HideOnMobile } from "../responsive";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import constants from "../lib/constants";
 
@@ -27,12 +29,8 @@ const Navbar = ({ pageTitle }) => {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const styles = useStyleConfig("navbar");
-  const [windowHeight, setWindowHeight] = useState(0);
-
-  // fix for drawer height problem on projects page
-  useEffect(() => {
-    setWindowHeight(window?.innerHeight);
-  }, []);
+  const { colorMode, toggleColorMode } = useColorMode();
+  const bgColor = useColorModeValue("softBlack", "gray");
 
   let navBarItems = [];
 
@@ -53,7 +51,7 @@ const Navbar = ({ pageTitle }) => {
   return (
     <>
       <HideOnMobile>
-        <Flex {...styles.nav}>
+        <Flex {...styles.nav} bgColor={bgColor}>
           <Link href="/">
             <motion.div
               initial={{ y: -1000 }}
@@ -80,11 +78,24 @@ const Navbar = ({ pageTitle }) => {
                 </Link>
               </Box>
             ))}
+            <HStack>
+              <Switch
+                onChange={toggleColorMode}
+                colorScheme="red"
+                color="white"
+                size="lg"
+              />
+              {colorMode === "light" ? (
+                <MoonIcon color="white" boxSize="2rem" />
+              ) : (
+                <SunIcon color="white" boxSize="2rem" />
+              )}
+            </HStack>
           </HStack>
         </Flex>
       </HideOnMobile>
       <HideOnDesktop>
-        <Flex {...styles.mobileWrapper}>
+        <Flex {...styles.mobileWrapper} bgColor={bgColor}>
           <AbsoluteCenter axis="horizontal">
             <Link href="/">
               <motion.div
@@ -113,11 +124,24 @@ const Navbar = ({ pageTitle }) => {
               <GridItem>
                 {navBarItems?.map((item, idx) => (
                   <Box key={idx} textAlign="center">
-                    <Link href={item.url} {...styles.navItem} fontSize="2rem">
+                    <Link href={item.url} fontSize="2rem">
                       {item.label}
                     </Link>
                   </Box>
                 ))}
+                <HStack justifyContent="center">
+                  <Switch
+                    onChange={toggleColorMode}
+                    colorScheme="red"
+                    color="white"
+                    size="lg"
+                  />
+                  {colorMode === "light" ? (
+                    <MoonIcon boxSize="2rem" />
+                  ) : (
+                    <SunIcon boxSize="2rem" />
+                  )}
+                </HStack>
               </GridItem>
             </DrawerBody>
           </DrawerContent>

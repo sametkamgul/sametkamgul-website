@@ -1,7 +1,6 @@
 const navbar = {
   baseStyle: {
     nav: {
-      backgroundColor: "softBlack",
       alignItems: "center",
       justifyContent: "space-between",
       position: "fixed",

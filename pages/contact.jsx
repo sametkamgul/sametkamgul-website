@@ -9,6 +9,7 @@ import {
   useToast,
   Link,
   Box,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -21,6 +22,8 @@ const Contact = () => {
   const recaptchaRef = React.createRef();
   const toast = useToast();
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const borderColor = useColorModeValue("softBlack", "gray");
+  const titleColor = useColorModeValue("softBlack", "white");
 
   const formik = useFormik({
     initialValues: {
@@ -106,7 +109,7 @@ const Contact = () => {
                 alignItems="center"
                 justifyContent="center"
                 backgroundColor="softBlack"
-                color="white"
+                color={borderColor}
               >
                 <Link href="/">
                   <Text textAlign="center" fontSize="2xl">
@@ -118,7 +121,7 @@ const Contact = () => {
           ) : (
             <form onSubmit={formik.handleSubmit}>
               <VStack width={{ base: "20rem", md: "30rem", lg: "40rem" }}>
-                <Text fontSize="2rem" color="softBlack">
+                <Text fontSize="2rem" color={titleColor}>
                   Contact me
                 </Text>
                 <Input
@@ -132,7 +135,7 @@ const Contact = () => {
                   borderColor={
                     formik.touched.firstName && formik.errors.firstName
                       ? "red"
-                      : "softBlack"
+                      : borderColor
                   }
                 />
 
@@ -147,7 +150,7 @@ const Contact = () => {
                   borderColor={
                     formik.touched.lastName && formik.errors.lastName
                       ? "red"
-                      : "softBlack"
+                      : borderColor
                   }
                 />
 
@@ -162,7 +165,7 @@ const Contact = () => {
                   borderColor={
                     formik.touched.email && formik.errors.email
                       ? "red"
-                      : "softBlack"
+                      : borderColor
                   }
                 />
 
@@ -177,7 +180,7 @@ const Contact = () => {
                   borderColor={
                     formik.touched.message && formik.errors.message
                       ? "red"
-                      : "softBlack"
+                      : borderColor
                   }
                 />
 
@@ -190,7 +193,7 @@ const Contact = () => {
                     backgroundColor: "white",
                     color: "softBlack",
                     border: "1px solid",
-                    borderColor: "softBlack",
+                    borderColor: borderColor,
                   }}
                   isLoading={mutation.isPending}
                 >

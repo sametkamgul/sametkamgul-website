@@ -1,6 +1,6 @@
 import Navbar from "@/app/components/navbar";
 import MyProjects from "@/app/components/projects/myProjects";
-import { Flex, useStyleConfig } from "@chakra-ui/react";
+import { Flex, useColorModeValue, useStyleConfig } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
 import ScrollToTop from "react-scroll-to-top";
@@ -9,6 +9,11 @@ import useContents from "@/app/hooks/useContents";
 const Projects = () => {
   const styles = useStyleConfig("projects");
   const { data, isLoading } = useContents();
+  const bgColor = useColorModeValue("black", "white");
+  const arrowColor = useColorModeValue("white", "black");
+
+  // dark/ligth mode style override
+  styles.scrollToTopInner.backgroundColor = bgColor;
 
   return (
     <motion.div
@@ -23,6 +28,7 @@ const Projects = () => {
         smooth={true}
         {...styles.scrollToTop}
         style={styles.scrollToTopInner}
+        color={arrowColor}
       />
     </motion.div>
   );

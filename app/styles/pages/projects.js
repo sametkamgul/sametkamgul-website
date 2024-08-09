@@ -1,7 +1,6 @@
-const projects = {
+let projects = {
   baseStyle: {
     scrollToTop: {
-      color: "white",
       width: "2rem",
       height: "2rem",
     },
@@ -10,8 +9,6 @@ const projects = {
       width: "3.5rem",
       height: "3.5rem",
       alignContent: "center",
-      backgroundColor: "black",
-      color: "white",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",

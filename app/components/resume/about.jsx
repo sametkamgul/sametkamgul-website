@@ -4,7 +4,7 @@ import React from "react";
 const About = ({ about }) => {
   return (
     <VStack>
-      <Text textAlign="center" color="softBlack" fontSize="xl">
+      <Text textAlign="center" fontSize="xl">
         {about}
       </Text>
     </VStack>

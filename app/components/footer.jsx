@@ -1,12 +1,4 @@
-import {
-  Flex,
-  HStack,
-  Icon,
-  Image,
-  Link,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Flex, HStack, Link, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import {
   FaGithub,
@@ -17,6 +9,8 @@ import {
 import constants from "../lib/constants";
 
 const Footer = () => {
+  const iconColor = useColorModeValue("black", "white");
+
   return (
     <Flex
       alignItems="center"
@@ -31,16 +25,16 @@ const Footer = () => {
         <Text fontSize="1rem">{constants.TEXT.trademark}</Text>
         <HStack>
           <Link href="https://www.linkedin.com/in/sametkamgul" isExternal>
-            <FaLinkedin size="2rem" color="black" />
+            <FaLinkedin size="2rem" color={iconColor} />
           </Link>
           <Link href="https://github.com/sametkamgul" isExternal>
-            <FaGithub size="2rem" color="black" />
+            <FaGithub size="2rem" color={iconColor} />
           </Link>
           <Link href="https://instagram.com/sametkamgul" isExternal>
-            <FaInstagram size="2rem" color="black" />
+            <FaInstagram size="2rem" color={iconColor} />
           </Link>
           <Link href="https://soundcloud.com/sametkamgul" isExternal>
-            <FaSoundcloud size="2rem" color="black" />
+            <FaSoundcloud size="2rem" color={iconColor} />
           </Link>
         </HStack>
       </HStack>

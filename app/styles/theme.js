@@ -18,7 +18,7 @@ const theme = extendTheme({
         body: `'Inter', ${defaultTheme.fonts.body}`,
     },
     config: {
-        initialColorMode: 'light',
+        initialColorMode: 'dark',
         useSystemColorMode: false,
     },
     breakpoints,

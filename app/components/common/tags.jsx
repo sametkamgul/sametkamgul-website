@@ -1,7 +1,9 @@
-import { Box, HStack, Link, Text } from "@chakra-ui/react";
+import { Box, HStack, Link, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 
 const Tags = ({ tags = "" }) => {
+  const bgColor = useColorModeValue("", "gray");
+
   const tagsArr = tags?.split(",");
 
   return (
@@ -27,7 +29,8 @@ const Tags = ({ tags = "" }) => {
             borderColor="softBlack"
             borderRadius="0.25rem"
             padding="0.125rem"
-            _hover={{color: "white", backgroundColor: "softBlack"}}
+            backgroundColor={bgColor}
+            _hover={{ color: "white", backgroundColor: "softBlack" }}
           >
             <Text>{t}</Text>
           </Box>
