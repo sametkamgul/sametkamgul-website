@@ -16,12 +16,7 @@ const Posts = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 1 } }}
     >
-      <Flex
-        width="full"
-        justifyContent="center"
-        gap="2rem"
-        flexDir="column"
-      >
+      <Flex width="full" justifyContent="center" gap="2rem" flexDir="column">
         {isLoading ? (
           <Stack alignItems="center">
             <Spinner width="3rem" height="3rem" />
@@ -29,7 +24,9 @@ const Posts = () => {
         ) : (
           posts?.map((p, idx) => (
             <VStack key={idx} alignItems="center" justifyContent="center">
-              <Text fontSize="2rem">{p.title}</Text>
+              <Text fontSize="1.5rem" padding="1rem" textAlign="center" width={{base: "100%%", sm: "75%"}}>
+                {p.title}
+              </Text>
               <Link href={p.link} isExternal={true}>
                 <Text textDecoration="underline" fontStyle="italic">
                   read more
